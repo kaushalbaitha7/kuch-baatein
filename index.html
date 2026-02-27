@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- Responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- PWA Theme -->
+  <meta name="theme-color" content="#0a1f44" />
+
+  <!-- iOS Support -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <title>Kuch Baatein</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- iOS Icon -->
+  <link rel="apple-touch-icon" href="icon-192.png">
+</head>
+
+<body>
+
+  <div class="background"></div>
+  <div class="particles"></div>
+
+  <div class="scene">
+    <div class="book-wrapper">
+
+      <div class="book-glow"></div>
+
+      <div class="book">
+        <div class="cover" id="cover"></div>
+
+        <div class="page-container" id="pageContainer">
+          <div class="page" id="page">
+            <p id="poemText"></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Install Button -->
+  <button id="installBtn" class="install-btn">📲 Install App</button>
+
+  <!-- Main Script -->
+  <script src="script.js"></script>
+
+  <!-- Service Worker Registration -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker
+          .register("service-worker.js")
+          .then(() => console.log("Service Worker Registered"))
+          .catch(err => console.log("SW Error:", err));
+      });
+    }
+  </script>
+
+</body>
+</html>
